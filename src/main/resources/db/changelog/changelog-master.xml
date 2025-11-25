@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <!-- Описание главного changelog-файла -->
+    <property name="now" value="current_timestamp" dbms="mssql"/>
+
+    <!-- Подключаем отдельные changelog-файлы с изменениями -->
+    <include file=""/>
+    <include file=""/>
+    <include file=""/>
+
+    <!-- Можно также подключать папку целиком -->
+    <!-- <includeAll path="changelogs/" /> -->
+
+</databaseChangeLog>
