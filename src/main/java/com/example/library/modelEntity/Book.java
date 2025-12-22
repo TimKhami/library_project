@@ -2,12 +2,15 @@ package com.example.library.modelEntity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
@@ -34,7 +37,6 @@ public class Book {
     //Место издания
     @Column(nullable = false)
     private String placeOfPublication;
-
 
 
 }
