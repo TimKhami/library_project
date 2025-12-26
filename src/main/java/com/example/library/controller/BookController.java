@@ -6,10 +6,7 @@ import com.example.library.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,13 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BookDTO>> getAllBooks(@RequestBody BookDTO bookDTO) {
+    public ResponseEntity<List<Book>> getAllBooks() {
         return new ResponseEntity<>(bookService.findAllBooks(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/books/{id}") // <--От клиента получаем ИД и @PathVariable подставляем его в параметры метода deleteBook
+    public ResponseEntity<Void> deleteBook(@PathVariable long id) {
+        bookService.BookDelete(id);
+        return ResponseEntity.noContent().build();
     }
 }
