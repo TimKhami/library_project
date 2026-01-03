@@ -3,6 +3,7 @@ package com.example.library.service;
 import com.example.library.dto.BookDTO;
 import com.example.library.modelEntity.Book;
 import com.example.library.repository.BookRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,14 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book BookUpdate(Book book) {
+    public Book BookUpdate(Long id, BookDTO bookDTO) {
+        Book book = bookRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Book not found"));
+        book.setTitle(bookDTO.getTitle());
+        book.setGenre(bookDTO.getGenre());
+        book.setAuthor(bookDTO.getAuthor());
+        book.setPublisher(bookDTO.getPublisher());
+        book.setPublishedDate(bookDTO.getPublishedDate());
+        book.setPlaceOfPublication(bookDTO.getPlaceOfPublication());
         return bookRepository.save(book);
 
     }
