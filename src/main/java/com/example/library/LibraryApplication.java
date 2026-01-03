@@ -1,5 +1,6 @@
 package com.example.library;
 
+import com.example.library.dto.BookDTO;
 import com.example.library.modelEntity.Book;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
